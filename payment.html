@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gas Booking - Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f4f6f9;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    .payment-option {
+      margin: 20px 0;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .payment-option:hover {
+      background: #f1f1f1;
+    }
+    .qr-code {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .success-message {
+      color: green;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #0066ff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Pay ₹890 for Gas Booking</h2>
+
+  <div class="payment-option" onclick="showQRCode()">
+    📷 Pay via Paytm QR Code
+  </div>
+
+  <div class="payment-option" onclick="cashOnDelivery()">
+    💵 Cash on Delivery
+  </div>
+
+  <div class="payment-option" onclick="openFakeGateway()">
+    💳 Pay Online (Simulated)
+  </div>
+
+  <div class="qr-code" id="qrCodeBox">
+    <p>Scan the QR Code below to pay ₹890 using UPI/Paytm:</p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=demo@upi&pn=Gas+Agency&am=890&cu=INR" alt="QR Code">
+    <p><button onclick="confirmPayment('QR Code')">I Have Paid</button></p>
+  </div>
+
+  <div class="qr-code" id="fakeGatewayBox">
+    <p>Simulate online payment of ₹890</p>
+    <p><button onclick="confirmPayment('Online Payment')">Payment Successful</button></p>
+  </div>
+  <button onclick="confirmPayment()">Confirm Payment</button>
+  <p class="success-message" id="successMsg"></p>
+</div>
+
+<!-- ✅ Script moved to the end of body -->
+<script type="module" src="payment.js"></script>
+
+</body>
+</html>

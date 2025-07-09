@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Base Page</title>
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <a href="#" class="brand">GoGas</a>
+    <div class="menu-btn"><i class="fa-solid fa-bars"></i></div>
+    <div class="navigation">
+      <div class="navigation-items">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#precautions">Precautions</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" onclick="location.href='index.html'">SignUp</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="home" id="home">
+    <video class="video-slide" src="gas.mp4" autoplay muted loop></video>
+    <div class="content">
+      <h1>LPG <br><span style="color:#fff">Gas Cylinders</span></h1>
+      <p>At GoGas Agency, we believe that every home deserves a safe, efficient, and reliable gas connection. As a
+        trusted provider of LPG (Liquefied Petroleum Gas) services, we are committed to delivering quality, convenience,
+        and customer satisfaction right to your doorstep.</p>
+      <a href="/index.html">Book Now</a>
+    </div>
+    <div class="media-icons">
+      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
+    </div>
+  </section>
+  <section class="about-container" id="about">
+    <div class="about-image">
+      <img src="gas1.jpeg" alt="about pic" />
+    </div>
+    <div class="about-content">
+      <h2 class="section-header">ABOUT US</h2>
+      <p>Welcome to GoGas, where safety, reliability, and customer satisfaction come first. We are a
+        trusted provider of LPG gas cylinders, committed to delivering clean, efficient, and eco-friendly energy to
+        homes and businesses across the region. Our journey began with a simple mission — to make access to cooking gas
+        easier, safer, and more convenient for everyone. Over the years, we've grown with technology, introducing online
+        booking, real-time tracking, and responsive customer service to ensure a seamless experience for our users.
+
+        At GoGas, we believe that timely delivery and safety are the cornerstones of customer trust.
+        That's why every cylinder we deliver is thoroughly checked and handled by trained professionals. We also offer
+        safety tips, emergency assistance, and regular updates to keep our customers informed and protected. Whether
+        you're a first-time user or a long-time customer, our team is here to support you every step of the way.
+
+        With a strong reputation built on quality and care, we are proud to serve thousands of families and businesses.
+        Join us in creating a safer, smarter, and more energy-efficient future — because with GoGas,
+        you're always in safe hands.
+      </p>
+    </div>
+  </section>
+
+  <!-- Precautions section -->
+  <section class="pre-container" id="precautions">
+    <div class="pre-image">
+      <img src="gas2.png" alt="precautions image" />
+    </div>
+    <div class="pre-content">
+      <p class="section-header">PRECAUTIONS</p>
+      <h2 class="section-subheader">The <span>safety rules</span> everyone should know</h2>
+      <ul class="pre-list">
+        <li>
+          <span><i class="fa-solid fa-bottle-droplet"></i></span>
+          <div>
+            <h4>Regular inspections of cylinders</h4>
+            <p>Ensure all gas cylinders are thoroughly inspected for leaks, damage, and expiry before dispatch. Use leak
+              detection methods like soapy water or gas detectors to prevent accidents during storage or delivery.</p>
+          </div>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-warehouse"></i></span>
+          <div>
+            <h4>Safe storage condition </h4>
+            <p>Store cylinders upright in a well-ventilated area away from direct sunlight, flammable materials, or
+              electrical equipment. The storage area should have proper fire extinguishers and be clearly marked as a
+              high-risk zone.</p>
+          </div>
+        </li>
+        <li>
+          <span><i class="fa-solid fa-power-off"></i></span>
+          <div>
+            <h4>Turn off when not in use</h4>
+            <p>Always turn off the regulator and appliance knob after cooking.Place the LPG cylinder on a flat,
+              ventilated surface in an upright position. Never keep it lying down or in a closed space like cabinets or
+              near drains. This prevents accidental leaks and enhances safety.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact form -->
+  <section class="contact-container" id="contact">
+    <div class="form-box">
+      <h1 class="section-header">Contact Us</h1>
+      <p class="section-subheader">A easier way to get in touch</p>
+      <form>
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="Your email" required>
+        <input type="text" placeholder="Your phone number" required>
+        <textarea cols="30" rows="6" placeholder="Your message" required></textarea>
+        <button class="btn">Send</button>
+      </form>
+    </div>
+    <div class="map-box">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118016.30738832062!2d88.34736573297477!3d22.535469075973563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f882db4908f667%3A0x43e330e68f6c2cbc!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1744219903658!5m2!1sen!2sin"
+        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+
+</body>
+<script src="https://unpkg.com/scrollreveal"></script>
+<script src="base.js"></script>
+
+</html>

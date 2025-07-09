@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register & Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="firebaseauth.js"></script>
+</head>
+
+<body>
+  <a href="#" class="brand">GoGas</a>
+
+  <div class="container" id="signup" style="display:none;">
+    <h1 class="form-title">Register</h1>
+    <form method="post" action="">
+      <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="fName" placeholder="First Name" required>
+        <label for="fname">First Name</label>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-user"></i>
+        <input type="text" id="lName" placeholder="Last Name" required>
+        <label for="lName">Last Name</label>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="rEmail" placeholder="Email" required>
+        <label for="rEmail">Email</label>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="rPassword" placeholder="Password" required>
+        <label for="rPassword">Password</label>
+      </div>
+      <div class="input-group">
+        <i class="fa-solid fa-house-user"></i>
+        <input type="text" id="rAddress" placeholder="Address" required>
+        <label for="rAddress">Address</label>
+      </div>
+      <button class="btn" id="submitSignUp">Sign Up</button>
+    </form>
+    <p class="or">
+      ----------or--------
+    </p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-facebook"></i>
+    </div>
+    <div class="links">
+      <p>Already Have Account ?</p>
+      <button id="signInButton">Sign In</button>
+    </div>
+  </div>
+
+  <div class="container" id="signIn">
+    <h1 class="form-title">Sign In</h1>
+    <form method="post" action="">
+      <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+
+      <div class="input-group">
+        <i class="fas fa-envelope"></i>
+        <input type="email" id="email" placeholder="Email" required>
+        <label for="email">Email</label>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" placeholder="Password" required>
+        <label for="password">Password</label>
+      </div>
+      <p class="recover">
+        <a href="#">Recover Password</a>
+      </p>
+      <button class="btn" id="submitSignIn">Sign In</button>
+    </form>
+    <p class="or">
+      ----------or--------
+    </p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-facebook"></i>
+    </div>
+    <div class="links">
+      <p>Don't have account yet?</p>
+      <button id="signUpButton">Sign Up</button>
+    </div>
+  </div>
+
+  <script>
+    const signUpButton = document.getElementById('signUpButton');
+    const signInButton = document.getElementById('signInButton');
+    const signInForm = document.getElementById('signIn');
+    const signUpForm = document.getElementById('signup');
+    const profileImageContainer = document.getElementById('imageContainer');
+    const fileInput = document.getElementById('fileInput');
+    const arrowIcon = document.getElementById('arrowIcon');
+
+    // Toggle between Sign Up and Sign In forms
+    signUpButton.addEventListener('click', function () {
+      signInForm.style.display = "none";
+      signUpForm.style.display = "block";
+    })
+    signInButton.addEventListener('click', function () {
+      signInForm.style.display = "block";
+      signUpForm.style.display = "none";
+    })
+
+    // Click event for the image container to trigger file upload
+    profileImageContainer.addEventListener('click', function () {
+      fileInput.click();
+    });
+
+    // Handle the file input change event and upload the selected image to Firebase Storage
+    fileInput.addEventListener('change', async function (event) {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      // Initialize Firebase Storage
+      const storageRef = firebase.storage().ref();
+      const fileRef = storageRef.child(`profile_pictures/${file.name}`);
+
+      try {
+        // Upload file to Firebase Storage
+        await fileRef.put(file);
+
+        // Get the file URL after upload
+        const fileURL = await fileRef.getDownloadURL();
+
+        // Set the uploaded image as the background of the round circle
+        profileImageContainer.style.backgroundImage = `url(${fileURL})`;
+        profileImageContainer.style.backgroundSize = 'cover';
+        profileImageContainer.style.backgroundPosition = 'center';
+        profileImageContainer.innerHTML = ""; // Remove arrow icon
+
+      } catch (error) {
+        console.error("Error uploading image:", error);
+      }
+    });
+  </script>
+</body>
+</html>
